@@ -42,7 +42,7 @@ namespace TaskFirst
             if (str.Length == 0) return false;
             if ((str[0] < 'a' && str[0] > 'z') || (str[0] < 'A' && str[0] > 'Z')) return false;
 
-            Regex regex = new Regex("^[a-zA-Z][a-zA-Z0-9_]+@[a-zA-Z][a-zA-Z0-9_]+\\.[a-zA-Z]([a-zA-Z0-9_]+|$)$");
+            Regex regex = new Regex("^[a-zA-Z][a-zA-Z0-9_]*@[a-zA-Z][a-zA-Z0-9_]*\\.[a-zA-Z]([a-zA-Z0-9_]*|$)$");
             MatchCollection matchCollection = regex.Matches(str);
 
             if (matchCollection.Count == 1)
