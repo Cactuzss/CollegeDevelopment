@@ -1,0 +1,32 @@
+﻿<Window x:Class="practice.Windows.Authorization"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:practice.Windows"
+        mc:Ignorable="d"
+        Title="Authorization" MinHeight="450" MinWidth="500" Height="450" Width="500">
+    <Grid Background="#99D9EA">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Image Source="/Resources/employees.png" Margin="10,10,10,10"/>
+        <TextBox Grid.Row="1" 
+                 HorizontalAlignment="Center" VerticalAlignment="Center" 
+                 MinHeight="25" MinWidth="200" x:Name="logen"
+                 FontFamily="MS Reference Sans Serif" Background="#22B14C"/>
+
+        <PasswordBox Grid.Row="2" 
+                 HorizontalAlignment="Center" VerticalAlignment="Center" 
+                 MinHeight="25" MinWidth="200"
+                 x:Name="passwodr" Background="#22B14C"/>
+
+        <Button Grid.Row="3" Width="100" Height="25" Content="Log in" Click="Log_in"
+                 FontFamily="MS Reference Sans Serif" Background="#FFF200"/>
+    </Grid>
+</Window>
