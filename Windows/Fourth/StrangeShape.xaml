@@ -1,17 +1,0 @@
-﻿<Window x:Class="practice.Windows.Work_Four"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:practice.Windows"
-        mc:Ignorable="d"
-        Title="Work_Four" Height="450" Width="800"
-        AllowsTransparency="True"
-        WindowStyle="None"
-        Background="Transparent">
-    <Grid>
-        <Image Source="/Resources/StrangeShape.png" MouseLeftButtonDown="Button_MouseLeftButtonDown"/>
-        <Button Width="50" Height="25" Content="Close" Background="AliceBlue" Click="Button_Click" MouseLeftButtonDown="Button_MouseLeftButtonDown"/>
-        <Border Name="newBorder" CornerRadius="1000,1000,1000,1000" Opacity="0.7" Background="Black" Width="10" Height="10" RenderTransformOrigin="0.5,0.5" Margin="375,121,415,319" />        <TextBox Text="г. Рязань" Margin="385,116,358,314" Background="Transparent" BorderThickness="0"/>
-    </Grid>
-</Window>
