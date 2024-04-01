@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Odbc;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using TaskFirst;
 
 namespace practice.Windows
@@ -22,35 +25,58 @@ namespace practice.Windows
     /// </summary>
     public partial class Authorization : Window
     {
-        bool isActive = true;
-        BackgroundWorker blocker = new BackgroundWorker();
-
         const String theWord = "employe";
 
         int counter = 0;
+        int deathtime = 10;
+
+        DispatcherTimer timer;
+        DispatcherTimer blocker;
 
         public Authorization()
         {
             InitializeComponent();
 
-            blocker.DoWork += block;
-            //backgroundWorker1.ProgressChanged += backgroundWorker1_ProgressChanged;
-            //backgroundWorker1.WorkerReportsProgress = true;
+            timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(deathtime) };
+            timer.Tick += DeathTimer;
 
+            timer.Start();
+
+            blocker = new DispatcherTimer { Interval = TimeSpan.FromSeconds(deathtime / 2) };
+            blocker.Tick += block;
+
+        }
+
+        private void DeathTimer(object sender, EventArgs e)
+        {
+            //this.Close();
+            MessageBox.Show("Do no forgor about this window");
+        }
+
+        private void Window_Activity(object sender, TextChangedEventArgs e)
+        {
+            timer.Stop();
+            timer.Start();
+
+        }
+        private void Window_Activity(object sender, RoutedEventArgs e)
+        {
+            timer.Stop();
+            timer.Start();
         }
 
         private void Log_in(object sender, RoutedEventArgs e)
         {
+            Window_Activity(sender, e);
+
             if (counter == 3) 
             {
-                if (!blocker.IsBusy)
-                    blocker.RunWorkerAsync(); 
+                btn.IsEnabled = false;
+                blocker.Start();
 
-                MessageBox.Show("Rember the account data"); 
                 return; 
             }
 
-            if (!isActive) { MessageBox.Show("Wait a minute"); return; }
 
             if (logen.Text == theWord)
             {
@@ -74,11 +100,9 @@ namespace practice.Windows
             }
         }
 
-        private void block(object sender, System.ComponentModel.DoWorkEventArgs e)
+        private void block(object sender, EventArgs e)
         {
-            isActive = false;
-            Thread.Sleep(1000 * 60 / 4);
-            isActive = true;
+            btn.IsEnabled = true;
             counter = 0;
         }
     }

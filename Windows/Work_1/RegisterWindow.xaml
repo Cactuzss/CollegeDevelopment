@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskFirst"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="450" MinHeight="600" MinWidth="450">
+        Title="MainWindow" Height="600" Width="450" MinHeight="600" MinWidth="450" Background="#99D9EA">
 
     <Window.Resources>
         <Style x:Key="std_textblock">
@@ -17,10 +17,19 @@
 
         <Style x:Key="std_textbox">
             <Setter Property="Control.Margin" Value="5,0,0,0"/>
-            <Setter Property="Control.FontFamily" Value="Comic Sans ms"/>
+            <Setter Property="Control.FontFamily" Value="MS Reference Sans Serif"/>
             <Setter Property="Control.FontSize" Value="11"/>
             <Setter Property="Control.HorizontalAlignment" Value="Left"/>
             <Setter Property="Control.VerticalAlignment" Value="Center"/>
+            <Setter Property = "Control.Background" Value="#22B14C"/>
+        </Style>
+        
+        <Style TargetType="Button" x:Key="RoundButton">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Style.Resources>
         </Style>
     </Window.Resources>
 
@@ -99,11 +108,13 @@
                 Style="{StaticResource std_textblock}"
                 Grid.Row="4"/>
 
-            <TextBox x:Name="email" Style="{StaticResource std_textbox}" HorizontalAlignment="Left" Margin="5,0,0,0"
-                         MinWidth="200" MaxWidth="250" Grid.Column="1" Grid.Row="4"/>
+            <TextBox x:Name="email" Style="{StaticResource std_textbox}" HorizontalAlignment="Left" Margin="5,0,0,0" 
+                         MinWidth="200" MaxWidth="250" Grid.Column="1" Grid.Row="4" />
         </Grid>
-        <Button Content="Register" Grid.Row="3" Width="200" Height="50" Click="Register_Button"/>
-        <Button Content="Clear" Grid.Row="2" Width="200" Height="50" />
+        <Button Content="Register" Grid.Row="3" Width="200" Height="50" Click="Register_Button" Background="#FFF200" FontFamily="MS Reference Sans Serif" BorderThickness="0"
+                Style="{StaticResource RoundButton}"/>
+        <Button Content="Clear" Grid.Row="2" Width="200" Height="50" Background="#FFF200" FontFamily="MS Reference Sans Serif" BorderThickness="0"
+                Style="{StaticResource RoundButton}"/>
 
     </Grid>
 </Window>

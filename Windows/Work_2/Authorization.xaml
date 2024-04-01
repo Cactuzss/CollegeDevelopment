@@ -19,14 +19,16 @@
         <TextBox Grid.Row="1" 
                  HorizontalAlignment="Center" VerticalAlignment="Center" 
                  MinHeight="25" MinWidth="200" x:Name="logen"
-                 FontFamily="MS Reference Sans Serif" Background="#22B14C"/>
+                 FontFamily="MS Reference Sans Serif" Background="#22B14C"
+                 TextChanged="Window_Activity"/>
 
         <PasswordBox Grid.Row="2" 
                  HorizontalAlignment="Center" VerticalAlignment="Center" 
                  MinHeight="25" MinWidth="200"
-                 x:Name="passwodr" Background="#22B14C"/>
+                 x:Name="passwodr" Background="#22B14C"
+                 PasswordChanged="Window_Activity"/>
 
         <Button Grid.Row="3" Width="100" Height="25" Content="Log in" Click="Log_in"
-                 FontFamily="MS Reference Sans Serif" Background="#FFF200"/>
+                 FontFamily="MS Reference Sans Serif" Background="#FFF200" x:Name="btn"/>
     </Grid>
 </Window>
