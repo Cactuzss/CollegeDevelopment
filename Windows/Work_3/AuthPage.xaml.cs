@@ -46,7 +46,7 @@ namespace practice.Windows.Work_3
         private void DeathTimer(object sender, EventArgs e)
         {
             //this.Close();
-            MessageBox.Show("Do no forgor about this window");
+            MessageBox.Show("Do no forgor about this window ");
         }
 
         private void Window_Activity(object sender, TextChangedEventArgs e)
@@ -80,6 +80,7 @@ namespace practice.Windows.Work_3
                 {
                     var registerPage = new PageRegister();
                     this.NavigationService.Navigate(registerPage);
+                    timer.Stop();
                 }
                 else
                 {
